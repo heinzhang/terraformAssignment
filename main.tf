@@ -11,8 +11,24 @@ module "assignment_vpc" {
 }
 
 # 3. Provision a “t2.micro” EC2 instance, with an OS of your choice.
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"] # Canonical
+}
+
 resource "aws_instance" "assignment_ec2" { 
-   ami =  "ami-0f39d06d145e9bb63"
+    ami = data.aws_ami.ubuntu.id
     instance_type = "${var.instance_type}"
     availability_zone = "${var.available_zone}"
     key_name = "${var.key_name}"
