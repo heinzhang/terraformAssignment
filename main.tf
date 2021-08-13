@@ -94,3 +94,8 @@ resource "aws_instance" "assignment_ec2" {
 # see readme
 # 10. Describe any risks associated with your application/deployment
 # see readme 
+
+
+# Bonus point
+# Show the result of the resource.log on a webpage served from the NGIN. if you have any questions about the assignment feel free to reach out to us
+# done above. Configured the nginx conf file to point the port of node app. 
