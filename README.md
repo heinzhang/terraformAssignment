@@ -3,15 +3,17 @@ A terraform assignment
 
 ## Description
 
-This is a terraform assignment. 
+This is a terraform assignment.
+The code will provision an EC2 with docker container running in it. Also it will deploy a rest api service to the container. 
+The detailed instruction is below and also in the main.tf step by step. 
 
 ## Getting Started
-
 ### Dependencies
 
 * Terraform is installed
 * AWS account with access_key and secrect_key
-* Key pair downloaded with the key name 'assignment_key.pem' and put under the root folder
+* Key pair - download the key pair in 'pem' format from your aws EC2. The key name 'assignment_key.pem' and put under the root folder
+
 
 
 ### Installing & Executing program
@@ -23,12 +25,15 @@ terraform init
 terraform apply
 ```
 * Visit the log
+
+
 Find IP address from the output value after executing the 'terraform apply' command
 e.g.  ip address is '3.104.51.202'
 Visit the ip address with 8080 port in your browser. e.g. 'http://3.104.51.202:8080'
 It will show the logs recorded. 
 
 * Search function with keyword
+
 Use the format as below with your keyword to show the log lines which have only your keyword. 
 http://{{ip adress}}/logs/{{keyword}}
 
